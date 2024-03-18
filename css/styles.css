@@ -7,14 +7,17 @@
 }
 .row-two__item-one {
   background-color: #c9d5fd;
+  /* order: 2; */
 }
 .row-two__item-two {
   border: 1px dashed black;
   background-color: #5061c5;
+  /* order: 1; */
 }
 .row-two__item-three {
   background-color: #908bbc;
   border-bottom: 1px solid black;
+  /* order: 3; */
 }
 .row-three__item-one {
   border-top: none;
