@@ -1,0 +1,24 @@
+.row__item {
+  border: 1px solid black;
+  min-height: 60px;
+}
+.row-one__item-one {
+  border-bottom: none;
+}
+.row-two__item-one {
+  background-color: #c9d5fd;
+}
+.row-two__item-two {
+  border: 1px dashed black;
+  background-color: #5061c5;
+}
+.row-two__item-three {
+  background-color: #908bbc;
+  border-bottom: 1px solid black;
+}
+.row-three__item-one {
+  border-top: none;
+}
+.row-three__item-two {
+  border-top: none;
+}
