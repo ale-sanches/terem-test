@@ -23,12 +23,14 @@
   border-top: none;
 }
 
+/* Modal Window Styles */
+
 .modal-window {
   position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
+  width: 40%;
   background-color: white;
   padding: 80px;
   border-radius: 5px;
@@ -40,7 +42,7 @@
 }
 .modal-window__close-btn {
   position: absolute;
-  top: 30px;
+  top: 15px;
   right: 30px;
   font-size: 50px;
   color: #333;
