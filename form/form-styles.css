@@ -9,9 +9,12 @@ body {
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  flex-direction: column;
 }
 .form-container {
+  align-self: center;
+  width: 300px;
+  margin-top: 5%;
   background-color: #e0e5ec;
   border-radius: 20px;
   padding: 20px;
@@ -33,9 +36,22 @@ input {
 }
 
 input:focus {
+  /* box-shadow: 0 0 0 4px rgba(149, 149, 243, 0.9); */
   border: 1px solid #678ec5;
 }
 input::placeholder {
   font-size: 10px;
 }
+.form-info{
+  text-align: center;
+  margin-top: 30px;
+  align-self: center;
+  max-width: 800px;
+}
 
+.json{
+  word-wrap: break-word;
+}
+.hidden{
+  display: none;
+}
