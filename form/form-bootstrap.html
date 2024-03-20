@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+<!--    <link rel="stylesheet" href="form-styles.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Form</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="form-container">
+        <form class="g-3 was-validated">
+            <div class="row py-2">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="questionOne" name="number1" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <label for="questionOne">Вопрос 1</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-2">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="questionTwo" name="number2" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <label for="questionTwo">Вопрос 2</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-2">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="questionThree" name="number3" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <label for="questionThree">Вопрос 3</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-2">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="questionFour" name="number4" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <label for="questionFour">Вопрос 4</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-2">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="questionFive" name="number5" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <label for="questionFive">Вопрос 5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 mb-3">
+                <label for="Textarea1" class="form-label">Textarea</label>
+                <textarea
+                        class="form-control"
+                        id="Textarea1"
+                        placeholder="Напишите что-нибудь"
+                        name="text1"
+                        required
+                ></textarea>
+                <div class="invalid-feedback">
+                    Пожалуйста, напишите хоть что-то...
+                </div>
+            </div>
+
+            <div class="col-md-5 mb-3">
+                <label for="Textarea2" class="form-label">Textarea</label>
+                <textarea
+                        class="form-control"
+                        id="Textarea2"
+                        placeholder="Напишите что-нибудь"
+                        name="text2"
+                        required
+                ></textarea>
+                <div class="invalid-feedback">
+                    Пожалуйста, напишите хоть что-то...
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary submit-btn" type="submit">Submit form</button>
+            </div>
+        </form>
+
+    </div>
+    <div class="form-info">
+        <h3 class="heading hidden">Вы ввели:</h3>
+        <div class="json">
+        </div>
+    </div>
+</div>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+<script src="form-script.js"></script>
+</body>
+</html>
