@@ -8,16 +8,20 @@
 <!--    <link rel="stylesheet" href="form-styles.css">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Form</title>
-    
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid">
     <div class="form-container">
         <form class="g-3 was-validated">
             <div class="row py-2">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="form-floating">
-                        <select class="form-select" id="questionOne" required>
+                        <select class="form-select" id="questionOne" name="number1" required>
                             <option selected disabled value="">Choose...</option>
                             <option>1</option>
                             <option>2</option>
@@ -31,9 +35,9 @@
             </div>
 
             <div class="row py-2">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="form-floating">
-                        <select class="form-select" id="questionTwo" required>
+                        <select class="form-select" id="questionTwo" name="number2" required>
                             <option selected disabled value="">Choose...</option>
                             <option>1</option>
                             <option>2</option>
@@ -47,9 +51,9 @@
             </div>
 
             <div class="row py-2">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="form-floating">
-                        <select class="form-select" id="questionThree" required>
+                        <select class="form-select" id="questionThree" name="number3" required>
                             <option selected disabled value="">Choose...</option>
                             <option>1</option>
                             <option>2</option>
@@ -63,9 +67,9 @@
             </div>
 
             <div class="row py-2">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="form-floating">
-                        <select class="form-select" id="questionFour" required>
+                        <select class="form-select" id="questionFour" name="number4" required>
                             <option selected disabled value="">Choose...</option>
                             <option>1</option>
                             <option>2</option>
@@ -79,9 +83,9 @@
             </div>
 
             <div class="row py-2">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="form-floating">
-                        <select class="form-select" id="questionFive" required>
+                        <select class="form-select" id="questionFive" name="number5" required>
                             <option selected disabled value="">Choose...</option>
                             <option>1</option>
                             <option>2</option>
@@ -94,12 +98,13 @@
                 </div>
             </div>
 
-            <div class="col-md-3 mb-3">
+            <div class="col-md-5 mb-3">
                 <label for="Textarea1" class="form-label">Textarea</label>
                 <textarea
                         class="form-control"
                         id="Textarea1"
                         placeholder="Напишите что-нибудь"
+                        name="text1"
                         required
                 ></textarea>
                 <div class="invalid-feedback">
@@ -107,12 +112,13 @@
                 </div>
             </div>
 
-            <div class="col-md-3 mb-3">
+            <div class="col-md-5 mb-3">
                 <label for="Textarea2" class="form-label">Textarea</label>
                 <textarea
                         class="form-control"
                         id="Textarea2"
                         placeholder="Напишите что-нибудь"
+                        name="text2"
                         required
                 ></textarea>
                 <div class="invalid-feedback">
@@ -126,7 +132,13 @@
         </form>
 
     </div>
+    <div class="form-info">
+        <h3 class="heading hidden">Вы ввели:</h3>
+        <div class="json">
+        </div>
+    </div>
 </div>
         <script src="../js/bootstrap.bundle.min.js"></script>
+<script src="form-script.js"></script>
 </body>
 </html>
