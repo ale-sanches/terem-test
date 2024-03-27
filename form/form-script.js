@@ -1,76 +1,56 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const formElements = document.querySelectorAll(
-        "form input, form select, .form-select, textarea"
-    );
 
-    function validateForm() {
-        let isValid = true;
-        formElements.forEach(function (element) {
-            if (element.value === "") {
-                showErrorMessage(element);
-                isValid = false;
+    const form = document.querySelector("form");
+    const jsonHeading = document.querySelector(".heading");
+    const formInfo = document.querySelector(".json");
+
+    function makeJson() {
+        const jsonData = {};
+
+        const formData = new FormData(form);
+        const selectElements = form.querySelectorAll('select');
+        selectElements.forEach(select => {
+            const fieldName = select.getAttribute('name');
+            jsonData[fieldName] = formData.get(fieldName);
+        })
+
+        jsonData["firstName"] = formData.get("firstName") || null;
+        jsonData["lastName"] = formData.get("lastName") || null;
+
+        return JSON.stringify(jsonData);
+    }
+
+    function showJson(json) {
+        jsonHeading.classList.remove("hidden");
+        formInfo.textContent = json;
+    }
+
+    async function getResponse() {
+        try {
+            const response = await fetch("server.php?", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            });
+
+            if (response.ok) {
+                alert("Связь с сервером есть");
             } else {
-                removeErrorMessage(element);
+                alert("Ошибка при отправке: " + response.statusText);
             }
-        });
-        return isValid;
-    }
-
-    function showErrorMessage(element) {
-        if (!element.parentNode.querySelector(".error-message")) {
-            const errorMessage = document.createElement("p");
-            errorMessage.innerHTML = "Вы ничего не ввели";
-            errorMessage.style.color = "red";
-            errorMessage.classList.add("error-message");
-            element.after(errorMessage);
+        } catch (error) {
+            alert("Ошибка при выполнении запроса: " + error.message);
         }
     }
 
-    function removeErrorMessage(element) {
-        if (element.parentNode.querySelector(".error-message")) {
-            element.parentNode.querySelector(".error-message").remove();
-        }
-    }
 
-    formElements.forEach(function (input) {
-        input.addEventListener("input", function () {
-            removeErrorMessage(input);
-        });
+    form.addEventListener("submit", async function (evt) {
+        evt.preventDefault();
+        const json = makeJson();
+        showJson(json);
+        await getResponse();
     });
-    //действия при нажатии кнопки
-    const submitBtn = document.querySelector(".submit-btn");
-    submitBtn.addEventListener("click", function (event) {
-        event.preventDefault();
 
-        const formData = {};
-        formElements.forEach(function (element) {
-            if (element.name) {
-                formData[element.name] = element.value;
-            }
-        });
+})
 
-        if (validateForm()) {
-            const jsonHeading = document.querySelector(".heading");
-            jsonHeading.classList.remove("hidden");
-            const jsonData = JSON.stringify(formData);
-            const formInfo = document.querySelector(".json");
-            formInfo.textContent = jsonData;
-
-            //запрос на сервер
-           
-            let xhr = new XMLHttpRequest();
-            let url = "server.php";
-            xhr.open("GET", url, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        alert("Получил данные");
-                    } else {
-                        alert("Сервер недоступен");
-                    }
-                }
-            };
-            xhr.send();
-        }
-    });
-});
