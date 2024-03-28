@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
     <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta name="description" content="lorem ipsum"/>
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="css/styles.css"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="lorem ipsum" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Test</title>
-</head>
-<body>
-<div class="container-fluid text-center">
-    <div class="row row-one">
+  </head>
+  <body>
+    <div class="container-fluid text-center">
+      <div class="row row-one">
         <div
-                class="d-flex align-items-center justify-content-center col-12 text-center row__item row-one__item-one"
+          class="d-flex align-items-center justify-content-center col-12 text-center row__item row-one__item-one"
         >
-            <h1>Heading</h1>
+          <h1>Heading</h1>
         </div>
-    </div>
-    <div class="row row-two">
+      </div>
+      <div class="row row-two">
         <div class="col-xs-12 col-md-4 row__item row-two__item-one"></div>
         <div class="col-xs-12 col-md-4 row__item row-two__item-two"></div>
         <div class="col-xs-12 col-md-4 row__item row-two__item-three"></div>
-    </div>
-    <div class="row row-three">
+      </div>
+      <div class="row row-three">
         <div
-                class="d-flex align-items-center justify-content-center col-xs-12 col-md-4 row__item row-three__item-one"
+          class="d-flex align-items-center justify-content-center col-xs-12 col-md-4 row__item row-three__item-one"
         >
-            <button type="button" class="btn btn-warning">Кнопка 1</button>
+          <button type="button" class="btn btn-warning">Кнопка 1</button>
         </div>
         <div
-                class="d-flex align-items-center justify-content-center col-xs-12 col-md-8 row__item row-three__item-two"
+          class="d-flex align-items-center justify-content-center col-xs-12 col-md-8 row__item row-three__item-two"
         >
-            <button type="button" class="btn btn-success">Кнопка 2</button>
+          <button type="button" class="btn btn-success">Кнопка 2</button>
         </div>
+      </div>
     </div>
-</div>
 
-<div class="overlay hidden">
-    <div class="modal-window hidden">
-        <button class="modal-window__close-btn">&times;</button>
-        <h1 class="modal-window__heading">Привет, мир</h1>
+    <div class="modal-window" id="modal-window">
+      <div class="modal-window__body">
+        <div class="modal-window__content">
+          <button class="modal-window__close-btn" type="button">&times;</button>
+          <p class="modal-window__text">Привет, мир</p>
+        </div>
+      </div>
     </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/main.js"></script>
-</body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
