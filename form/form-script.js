@@ -1,38 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const form = document.querySelector("form");
+    const form = document.querySelector("#form");
     const jsonHeading = document.querySelector(".heading");
     const formInfo = document.querySelector(".json");
 
-    function makeJson() {
-        const jsonData = {};
-
-        const formData = new FormData(form);
-        const selectElements = form.querySelectorAll('select');
-        selectElements.forEach(select => {
-            const fieldName = select.getAttribute('name');
-            jsonData[fieldName] = formData.get(fieldName);
-        })
-
-        jsonData["firstName"] = formData.get("firstName") || null;
-        jsonData["lastName"] = formData.get("lastName") || null;
-
+//получаем введенные данные из формы и возвращаем их в json-формате
+    function makeJsonStructure() {
+        const jsonData = Object.fromEntries(new FormData(form));
         return JSON.stringify(jsonData);
     }
-
+//выводим json под формой
     function showJson(json) {
         jsonHeading.classList.remove("hidden");
         formInfo.textContent = json;
     }
-
+//запрос к серверу
     async function getResponse() {
         try {
-            const response = await fetch("server.php?", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-            });
+            const response = await fetch("server.php?");
 
             if (response.ok) {
                 alert("Связь с сервером есть");
@@ -44,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-
+    //действия при отправке формы
     form.addEventListener("submit", async function (evt) {
         evt.preventDefault();
-        const json = makeJson();
+        const json = makeJsonStructure();
         showJson(json);
         await getResponse();
     });
