@@ -22,25 +22,25 @@ document.addEventListener("DOMContentLoaded", function () {
     secondItem.after(firstItem);
   });
 
-  //действия с модальным окном
+  //закрытие модального окна
 
   function closeModalWindow() {
     toggleItem(modalWindow);
   }
 
-  function handleModalClick(event) {
+  function handleBackgrdClick(event) {
     if (event.target === modalWindow) {
       closeModalWindow();
     }
   }
 
-  function handleEscKey(event) {
+  function handleEscClick(event) {
     if (event.key === "Escape" && !modalWindow.classList.contains("hidden")) {
       closeModalWindow();
     }
   }
 
   modalCloseBtn.addEventListener("click", closeModalWindow);
-  modalWindow.addEventListener("click", handleModalClick);
-  document.addEventListener("keydown", handleEscKey);
+  modalWindow.addEventListener("click", handleBackgrdClick);
+  document.addEventListener("keydown", handleEscClick);
 });
