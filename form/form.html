@@ -4,18 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="form-styles.css" />
     <title>Form</title>
   </head>
   <body>
     <div class="container">
       <div class="form-container">
-        <form action="server.php" method="get">
+        <form action="server.php" class="form" id="form">
           <div class="row">
             <label for="questionOne">Вопрос 1:</label>
             <select name="number1" id="questionOne">
-              <option value="" selected disabled></option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -27,7 +25,6 @@
           <div class="row">
             <label for="questionTwo">Вопрос 2:</label>
             <select name="number2" id="questionTwo">
-              <option value="" selected disabled></option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -39,7 +36,6 @@
           <div class="row">
             <label for="questionThree">Вопрос 3:</label>
             <select name="number3" id="questionThree">
-              <option value="" selected disabled></option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -51,7 +47,6 @@
           <div class="row">
             <label for="questionFour">Вопрос 4:</label>
             <select name="number4" id="questionFour">
-              <option value="" selected disabled></option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -63,7 +58,6 @@
           <div class="row">
             <label for="questionFive">Вопрос 5:</label>
             <select name="number5" id="questionFive">
-              <option value="" selected disabled></option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -73,7 +67,7 @@
           </div>
 
           <div class="row">
-            <label for="firstName"> Имя</label><br />
+            <label for="firstName">Имя</label><br />
             <input
               type="text"
               placeholder="Введите имя"
@@ -100,6 +94,7 @@
       <div class="form-info">
         <h3 class="heading hidden">Вы ввели:</h3>
         <div class="json"></div>
+        <div class="result"></div>
       </div>
     </div>
 

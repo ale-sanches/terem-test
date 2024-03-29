@@ -1,76 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const formElements = document.querySelectorAll(
-        "form input, form select, .form-select, textarea"
-    );
+  const form = document.querySelector("#form");
+  const jsonHeading = document.querySelector(".heading");
+  const formInfo = document.querySelector(".json");
 
-    function validateForm() {
-        let isValid = true;
-        formElements.forEach(function (element) {
-            if (element.value === "") {
-                showErrorMessage(element);
-                isValid = false;
-            } else {
-                removeErrorMessage(element);
-            }
-        });
-        return isValid;
+  //получаем введенные данные из формы и возвращаем их в json-формате
+  function makeJsonStructure() {
+    const jsonData = Object.fromEntries(new FormData(form));
+    return JSON.stringify(jsonData);
+  }
+  //выводим json под формой
+  function showJson(json) {
+    jsonHeading.classList.remove("hidden");
+    formInfo.textContent = json;
+  }
+  //запрос к серверу
+  async function getResponse() {
+    const response = await fetch("server.php?");
+    if (response.ok) {
+      alert("Связь с сервером есть");
     }
+  }
 
-    function showErrorMessage(element) {
-        if (!element.parentNode.querySelector(".error-message")) {
-            const errorMessage = document.createElement("p");
-            errorMessage.innerHTML = "Вы ничего не ввели";
-            errorMessage.style.color = "red";
-            errorMessage.classList.add("error-message");
-            element.after(errorMessage);
-        }
-    }
-
-    function removeErrorMessage(element) {
-        if (element.parentNode.querySelector(".error-message")) {
-            element.parentNode.querySelector(".error-message").remove();
-        }
-    }
-
-    formElements.forEach(function (input) {
-        input.addEventListener("input", function () {
-            removeErrorMessage(input);
-        });
-    });
-    //действия при нажатии кнопки
-    const submitBtn = document.querySelector(".submit-btn");
-    submitBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-
-        const formData = {};
-        formElements.forEach(function (element) {
-            if (element.name) {
-                formData[element.name] = element.value;
-            }
-        });
-
-        if (validateForm()) {
-            const jsonHeading = document.querySelector(".heading");
-            jsonHeading.classList.remove("hidden");
-            const jsonData = JSON.stringify(formData);
-            const formInfo = document.querySelector(".json");
-            formInfo.textContent = jsonData;
-
-            //запрос на сервер
-           
-            let xhr = new XMLHttpRequest();
-            let url = "server.php";
-            xhr.open("GET", url, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        alert("Получил данные");
-                    } else {
-                        alert("Сервер недоступен");
-                    }
-                }
-            };
-            xhr.send();
-        }
-    });
+  //действия при отправке формы
+  form.addEventListener("submit", async function (evt) {
+    evt.preventDefault();
+    const json = makeJsonStructure();
+    showJson(json);
+    await getResponse();
+  });
 });
+
