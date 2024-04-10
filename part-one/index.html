@@ -13,39 +13,37 @@
     <title>Test</title>
   </head>
   <body>
-    <div class="container-fluid text-center">
+    <div class="container-fluid">
       <div class="row row-one">
-        <div
-          class="d-flex align-items-center justify-content-center col-12 text-center row__item row-one__item-one"
+        <h1
+          class="col-12 d-flex align-items-center justify-content-center m-0 row__item item-one"
         >
-          <h1>Heading</h1>
-        </div>
+          Heading
+        </h1>
       </div>
       <div class="row row-two">
-        <div class="col-xs-12 col-md-4 row__item row-two__item-one"></div>
-        <div class="col-xs-12 col-md-4 row__item row-two__item-two"></div>
-        <div class="col-xs-12 col-md-4 row__item row-two__item-three"></div>
+        <div class="col-12 col-sm-4 row__item item-one"></div>
+        <div class="col-12 col-sm-4 row__item item-two"></div>
+        <div class="col-12 col-sm-4 row__item item-three"></div>
       </div>
       <div class="row row-three">
         <div
-          class="d-flex align-items-center justify-content-center col-xs-12 col-md-4 row__item row-three__item-one"
+          class="d-flex align-items-center justify-content-center col-12 col-sm-4 row__item item-one"
         >
           <button type="button" class="btn btn-warning">Кнопка 1</button>
         </div>
         <div
-          class="d-flex align-items-center justify-content-center col-xs-12 col-md-8 row__item row-three__item-two"
+          class="d-flex align-items-center justify-content-center col-12 col-sm-8 row__item item-two"
         >
           <button type="button" class="btn btn-success">Кнопка 2</button>
         </div>
       </div>
     </div>
 
-    <div class="modal-window" id="modal-window">
-      <div class="modal-window__body">
-        <div class="modal-window__content">
-          <button class="modal-window__close-btn" type="button">&times;</button>
-          <p class="modal-window__text">Привет, мир</p>
-        </div>
+    <div class="modal-window__overlay" id="modal-window">
+      <div class="modal-window__content">
+        <button class="modal-window__close-btn" type="button">&times;</button>
+        <p class="modal-window__text">Привет, мир</p>
       </div>
     </div>
 
