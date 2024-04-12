@@ -1,6 +1,7 @@
 const firstBtn = document.querySelector(".btn-warning");
 const secondBtn = document.querySelector(".btn-success");
-const modalWindowOverlay = document.querySelector(".modal-window__overlay");
+const modalWindow = document.querySelector(".modal-window");
+const overlay = document.querySelector(".overlay");
 const modalCloseBtn = document.querySelector(".modal-window__close-btn");
 const rowOne = document.querySelector(".row-one");
 
@@ -24,22 +25,20 @@ secondBtn.addEventListener("click", function () {
 //закрытие модального окна
 
 function handleModalClick(event) {
-  if (event.target === modalWindowOverlay) {
-    toggleItem(modalWindowOverlay);
+  if (event.target === overlay) {
+    toggleItem(overlay);
   }
 }
 
 function handleEscKey(event) {
-  if (
-    event.key === "Escape" &&
-    !modalWindowOverlay.classList.contains("hidden")
-  ) {
-    toggleItem(modalWindowOverlay);
+  if (event.key === "Escape" && !overlay.classList.contains("hidden")) {
+    toggleItem(overlay);
   }
 }
 
 modalCloseBtn.addEventListener("click", () => {
-  toggleItem(modalWindowOverlay);
+  toggleItem(overlay);
 });
-modalWindowOverlay.addEventListener("click", handleModalClick);
+
+overlay.addEventListener("click", handleModalClick);
 document.addEventListener("keydown", handleEscKey);
