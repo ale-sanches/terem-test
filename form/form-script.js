@@ -8,14 +8,10 @@ form.addEventListener("submit", async function (evt) {
   displayFormInfo(json);
 
   try {
-    let resp = await performGetRequest(serverUrl, json);
-    if (!resp.ok) {
-      throw new Error("Якая оказия приключилась, статус " + resp.status);
-    }
-    const responseBody = await resp.text();
+    const responseBody = await performGetRequest(serverUrl, json);
     alert("Тут могло быть ваше тело ответа: {" + responseBody + "}");
   } catch (error) {
-    console.log(error.stack);
+    console.error(error);
   }
 });
 
@@ -41,9 +37,16 @@ function displayFormInfo(json) {
  * Выполняет GET запрос на получение информации по собранным данным с формы
  * @param serverURL url сервера для отправки запроса
  * @param jsonParam параметры запроса
- * @returns {Promise<Response>} потенциальный ответ от сервера
+ * @returns {Promise<string>} потенциальное тело ответа от сервера
  */
+
 async function performGetRequest(serverURL, jsonParam) {
   let urlParams = new URLSearchParams(jsonParam);
-  return await fetch(`${serverURL}?${urlParams}`);
+  const resp = await fetch(`${serverURL}?${urlParams}`);
+  if (!resp.ok) {
+    throw new Error(
+      `"Якая оказия приключилась, ошибка при запросе: ${resp.status}"`
+    );
+  }
+  return resp.text();
 }
