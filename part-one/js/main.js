@@ -1,44 +1,38 @@
 const firstBtn = document.querySelector(".btn-warning");
 const secondBtn = document.querySelector(".btn-success");
-const modalWindow = document.querySelector(".modal-window");
-const overlay = document.querySelector(".overlay");
-const modalCloseBtn = document.querySelector(".modal-window__close-btn");
+const overlay = document.querySelector(".overlay")
+const rowThree = document.querySelector(".row-three");
 const rowOne = document.querySelector(".row-one");
+const modalCloseBtn = document.querySelector(".modal-window__close-btn");
 
-function toggleItem(element) {
-  element.classList.toggle("hidden");
-}
 
-//по нажатию на "Кнопка 1" скрываем и показываем блок с заголовком
-firstBtn.addEventListener("click", function () {
-  toggleItem(rowOne);
-});
-
-//по нажатию на "Кнопка 2" меняем местами первые два блока второго ряда
-secondBtn.addEventListener("click", function () {
-  const [firstItem, secondItem] = document.querySelectorAll(
-    ".row-two .row__item"
-  );
-  secondItem.after(firstItem);
+rowThree.addEventListener("click", function (event) {
+    // Проверяем, была ли нажата "Кнопка 1"
+    if (event.target === firstBtn) {
+        toggleItem(rowOne);
+    }
+    // Проверяем, была ли нажата "Кнопка 2"
+    else if (event.target === secondBtn) {
+        const [firstItem, secondItem] = document.querySelectorAll(".row-two .row__item");
+        secondItem.after(firstItem);
+    }
 });
 
 //закрытие модального окна
-
-function handleModalClick(event) {
-  if (event.target === overlay) {
-    toggleItem(overlay);
-  }
-}
-
-function handleEscKey(event) {
-  if (event.key === "Escape" && !overlay.classList.contains("hidden")) {
-    toggleItem(overlay);
-  }
-}
-
-modalCloseBtn.addEventListener("click", () => {
-  toggleItem(overlay);
+document.addEventListener("click", function (event) {
+    if (event.target === modalCloseBtn) {
+        toggleItem(overlay);
+    } else if (event.target === overlay) {
+        toggleItem(overlay);
+    }
 });
 
-overlay.addEventListener("click", handleModalClick);
-document.addEventListener("keydown", handleEscKey);
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !overlay.classList.contains("hidden")) {
+        toggleItem(overlay);
+    }
+});
+
+function toggleItem(element) {
+    element.classList.toggle("hidden");
+}

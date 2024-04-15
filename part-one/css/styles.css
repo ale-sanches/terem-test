@@ -1,79 +1,79 @@
 .row__item {
-  border: 1px solid black;
-  min-height: 60px;
+    border: 1px solid black;
+    min-height: 60px;
 }
 
 .row-one .item-one {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .row-two .item-one {
-  background-color: #c9d5fd;
+    background-color: #c9d5fd;
 }
 
 .row-two .item-two {
-  border: 1px dashed black;
-  background-color: #5061c5;
+    border: 1px dashed black;
+    background-color: #5061c5;
 }
 
 .row-two .item-three {
-  background-color: #908bbc;
+    background-color: #908bbc;
 }
 
 .row-three .item-one {
-  border-top: none;
-  border-right: none;
+    border-top: none;
+    border-right: none;
 }
 
 .row-three .item-two {
-  border-top: none;
+    border-top: none;
 }
 
 /* Modal Window Styles */
 .overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
+
 .modal-window {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background-color: #fff;
-  color: #000;
-  width: 300px;
-  height: min-content;
-  border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    width: 300px;
+    height: min-content;
+    border-radius: 10px;
 }
 
 .modal-window__text {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 .modal-window__close-btn {
-  align-self: flex-end;
-  font-size: 25px;
-  color: black;
-  cursor: pointer;
-  border: none;
-  background: none;
+    align-self: flex-end;
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
 
 /* Modal Window Styles end*/
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 /*media*/
 @media (max-width: 576px) {
-  .row-three .item-one {
-    border-right: 1px solid black;
-  }
+    .row-three .item-one {
+        border-right: 1px solid black;
+    }
 }
