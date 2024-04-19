@@ -1,48 +1,46 @@
 body {
-  background-color: #e0e5ec;
+    background-color: #e0e5ec;
 }
 
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 50px;
-  flex-direction: column;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-container {
-  width: 300px;
-  background-color: #e0e5ec;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 10px 10px 33px 0 rgba(0, 0, 0, 0.2),
+    width: 300px;
+    background-color: #e0e5ec;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 10px 10px 33px 0 rgba(0, 0, 0, 0.2),
     -8px -6px 24px 1px rgba(250, 250, 250, 1);
 }
 
 select {
-  width: 150px;
+    width: 150px;
 }
 
 .row {
-  padding: 10px;
+    padding: 10px;
 }
 
 input {
-  color: #555;
-  border-radius: 5px;
-  margin-top: 5px;
+    color: #555;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 input::placeholder {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 .form-info {
-  text-align: center;
-  margin-top: 30px;
-  max-width: 800px;
+    text-align: center;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }

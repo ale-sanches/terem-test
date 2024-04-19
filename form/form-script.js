@@ -2,17 +2,17 @@ const form = document.querySelector("#form");
 const serverUrl = "server.php";
 
 form.addEventListener("submit", async function (evt) {
-  evt.preventDefault();
+    evt.preventDefault();
 
-  const json = serializeFormToJSON(form);
-  displayFormInfo(json);
+    const json = serializeFormToJSON(form);
+    displayFormInfo(json);
 
-  try {
-    const responseBody = await performGetRequest(serverUrl, json);
-    alert("Тут могло быть ваше тело ответа: {" + responseBody + "}");
-  } catch (error) {
-    console.error(error);
-  }
+    try {
+        const responseBody = await performGetRequest(serverUrl, json);
+        alert("Тут могло быть ваше тело ответа: {" + responseBody + "}");
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 /**
@@ -21,7 +21,7 @@ form.addEventListener("submit", async function (evt) {
  * @returns {string} данные формы, сериализованные в JSON
  */
 function serializeFormToJSON(form) {
-  return JSON.stringify(Object.fromEntries(new FormData(form)));
+    return JSON.stringify(Object.fromEntries(new FormData(form)));
 }
 
 /**
@@ -29,8 +29,8 @@ function serializeFormToJSON(form) {
  * @param json сериализованные данные для отображения
  */
 function displayFormInfo(json) {
-  document.querySelector(".heading").classList.remove("hidden");
-  document.querySelector(".json").textContent = json;
+    document.querySelector(".heading").classList.remove("hidden");
+    document.querySelector(".json").textContent = json;
 }
 
 /**
@@ -41,12 +41,10 @@ function displayFormInfo(json) {
  */
 
 async function performGetRequest(serverURL, jsonParam) {
-  let urlParams = new URLSearchParams(jsonParam);
-  const resp = await fetch(`${serverURL}?${urlParams}`);
-  if (!resp.ok) {
-    throw new Error(
-      `"Якая оказия приключилась, ошибка при запросе: ${resp.status}"`
-    );
-  }
-  return resp.text();
+    let urlParams = new URLSearchParams(jsonParam);
+    const resp = await fetch(`${serverURL}?${urlParams}`);
+    if (!resp.ok) {
+        throw new Error(`"Якая оказия приключилась, ошибка при запросе: ${resp.status}"`);
+    }
+    return resp.text();
 }
