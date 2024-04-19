@@ -1,68 +1,79 @@
 .row__item {
-  border: 1px solid black;
-  min-height: 60px;
+    border: 1px solid black;
+    min-height: 60px;
 }
-.row-one__item-one {
-  border-bottom: none;
+
+.row-one .item-one {
+    border-bottom: none;
 }
-.row-two__item-one {
-  background-color: #c9d5fd;
+
+.row-two .item-one {
+    background-color: #c9d5fd;
 }
-.row-two__item-two {
-  border: 1px dashed black;
-  background-color: #5061c5;
+
+.row-two .item-two {
+    border: 1px dashed black;
+    background-color: #5061c5;
 }
-.row-two__item-three {
-  background-color: #908bbc;
-  border-bottom: 1px solid black;
+
+.row-two .item-three {
+    background-color: #908bbc;
 }
-.row-three__item-one {
-  border-top: none;
-  border-right: transparent;
+
+.row-three .item-one {
+    border-top: none;
+    border-right: none;
 }
-.row-three__item-two {
-  border-top: none;
+
+.row-three .item-two {
+    border-top: none;
 }
 
 /* Modal Window Styles */
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
 .modal-window {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  top: 0;
-  left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    width: 300px;
+    height: min-content;
+    border-radius: 10px;
 }
-.modal-window__body {
-  position: fixed;
-  top: 20%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-}
-.modal-window__content {
-  background-color: #fff;
-  color: #000;
-  max-width: 800px;
-  padding: 30px;
-  position: relative;
-  border-radius: 10px;
-}
+
 .modal-window__text {
-  font-size: 25px;
+    font-size: 25px;
 }
+
 .modal-window__close-btn {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 20px;
-  color: #333;
-  cursor: pointer;
-  border: none;
-  background: none;
+    align-self: flex-end;
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
+
+/* Modal Window Styles end*/
+
 .hidden {
-  display: none;
+    display: none;
+}
+
+/*media*/
+@media (max-width: 576px) {
+    .row-three .item-one {
+        border-right: 1px solid black;
+    }
 }

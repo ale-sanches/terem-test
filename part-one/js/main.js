@@ -1,46 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const firstBtn = document.querySelector(".btn-warning");
-  const secondBtn = document.querySelector(".btn-success");
-  const modalWindow = document.querySelector(".modal-window");
-  const modalCloseBtn = document.querySelector(".modal-window__close-btn");
-  const rowOne = document.querySelector(".row-one");
+const firstBtn = document.querySelector(".btn-warning");
+const secondBtn = document.querySelector(".btn-success");
+const overlay = document.querySelector(".overlay")
+const rowThree = document.querySelector(".row-three");
+const rowOne = document.querySelector(".row-one");
+const modalCloseBtn = document.querySelector(".modal-window__close-btn");
 
-  function toggleItem(element) {
-    element.classList.toggle("hidden");
-  }
 
-  //по нажатию на "Кнопка 1" скрываем и показываем блок с заголовком
-  firstBtn.addEventListener("click", function () {
-    toggleItem(rowOne);
-  });
-
-  //по нажатию на "Кнопка 2" меняем местами первые два блока второго ряда
-  secondBtn.addEventListener("click", function () {
-    const [firstItem, secondItem] = document.querySelectorAll(
-      ".row-two .row__item"
-    );
-    secondItem.after(firstItem);
-  });
-
-  //закрытие модального окна
-
-  function closeModalWindow() {
-    toggleItem(modalWindow);
-  }
-
-  function handleBackgrdClick(event) {
-    if (event.target === modalWindow) {
-      closeModalWindow();
+rowThree.addEventListener("click", function (event) {
+    // Если нажата "Кнопка 1"
+    if (event.target === firstBtn) {
+        toggleItem(rowOne);
     }
-  }
-
-  function handleEscClick(event) {
-    if (event.key === "Escape" && !modalWindow.classList.contains("hidden")) {
-      closeModalWindow();
+    // Если нажата "Кнопка 2"
+    if (event.target === secondBtn) {
+        const [firstItem, secondItem] = document.querySelectorAll(".row-two .row__item");
+        secondItem.after(firstItem);
     }
-  }
-
-  modalCloseBtn.addEventListener("click", closeModalWindow);
-  modalWindow.addEventListener("click", handleBackgrdClick);
-  document.addEventListener("keydown", handleEscClick);
 });
+
+//закрытие модального окна
+document.addEventListener("click", closeModal);
+document.addEventListener("keydown", closeModal);
+
+
+function closeModal(event) {
+    if ((event.type === "click" && (event.target === modalCloseBtn || event.target === overlay)) ||
+        (event.type === "keydown" && event.key === "Escape" && !overlay.classList.contains("hidden"))) {
+        toggleItem(overlay);
+    }
+}
+
+
+function toggleItem(element) {
+    element.classList.toggle("hidden");
+}
