@@ -7,31 +7,29 @@ const modalCloseBtn = document.querySelector(".modal-window__close-btn");
 
 
 rowThree.addEventListener("click", function (event) {
-    // Проверяем, была ли нажата "Кнопка 1"
+    // Если нажата "Кнопка 1"
     if (event.target === firstBtn) {
         toggleItem(rowOne);
     }
-    // Проверяем, была ли нажата "Кнопка 2"
-    else if (event.target === secondBtn) {
+    // Если нажата "Кнопка 2"
+    if (event.target === secondBtn) {
         const [firstItem, secondItem] = document.querySelectorAll(".row-two .row__item");
         secondItem.after(firstItem);
     }
 });
 
 //закрытие модального окна
-document.addEventListener("click", function (event) {
-    if (event.target === modalCloseBtn) {
-        toggleItem(overlay);
-    } else if (event.target === overlay) {
-        toggleItem(overlay);
-    }
-});
+document.addEventListener("click", closeModal);
+document.addEventListener("keydown", closeModal);
 
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && !overlay.classList.contains("hidden")) {
+
+function closeModal(event) {
+    if ((event.type === "click" && (event.target === modalCloseBtn || event.target === overlay)) ||
+        (event.type === "keydown" && event.key === "Escape" && !overlay.classList.contains("hidden"))) {
         toggleItem(overlay);
     }
-});
+}
+
 
 function toggleItem(element) {
     element.classList.toggle("hidden");
